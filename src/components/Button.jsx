@@ -1,9 +1,9 @@
-function MyComponent() {
+function Button({ className = "", id, label }) {
   return (
-    <div>
-      <p>Este es mi primer componente</p>
-    </div>
+    <button className={className} id={id} type="button">
+      {label}
+    </button>
   );
 }
 
-export default MyComponent;
+export default Button;
