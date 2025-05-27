@@ -17,10 +17,12 @@ function App() {
           <Timer
             className={"timerWorking"}
             id={"timer"}
-            timerUp={"Hasta la pausa activa"}
+            timerPurpose={"Hasta la pausa activa"}
+            // initialTime={30}
+            onTimerEnd={() => alert("Acabó el tiempo")} //Ejecuta la acción cuando el tiempo llega a su fin
           />
 
-          <ContainerCenter
+          {/* <ContainerCenter
             className={"containerButtonsTimerOn"}
             id={"container-buttons-timer-on"}
           >
@@ -34,7 +36,7 @@ function App() {
               id={"stop-button"}
               label={"Terminar"}
             />
-          </ContainerCenter>
+          </ContainerCenter> */}
         </TimerCard>
       </FullCenterSection>
     </div>
