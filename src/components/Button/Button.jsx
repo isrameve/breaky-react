@@ -1,7 +1,11 @@
-// import styles from "./Button.module.scss";
+import styles from "./Button.module.scss";
 
-const Button = ({ label, onClick }) => {
-  return <button onClick={onClick}>{label}</button>;
+const Button = ({ label, onClick, typeOfButton = "primaryButton" }) => {
+  return (
+    <button className={styles[typeOfButton]} onClick={onClick}>
+      {label}
+    </button>
+  );
 };
 
 export default Button;

@@ -1,3 +1,11 @@
 .card {
-  background-color: #5e5e5e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 60%;
+  height: 50%;
+  border-radius: $general-radius;
+  background-color: $color-card;
 }

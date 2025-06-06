@@ -1,18 +1,6 @@
-.buttonsTimerContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-
-  button {
-    font-family: inherit;
-    color: white;
-    font-weight: 500;
-  }
+.primaryButton {
+  background-color: $primary-button;
 }
-
-.mainButtons {
-  background-color: #008caa;
-}
-.secondaryButtons {
-  background-color: #ff2323;
+.secondaryButton {
+  background-color: $secondary-button;
 }
