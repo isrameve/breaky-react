@@ -13,6 +13,7 @@ const WorkigTimer = ({ timeWorking }) => {
 
   useEffect(() => {
     if (time === 0) {
+      alert("Ahora es tiempo de una pausa activa");
       setDisplay("none");
     }
   }, [time, display]);

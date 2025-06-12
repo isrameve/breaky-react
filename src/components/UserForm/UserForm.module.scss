@@ -1,0 +1,25 @@
+.textCenter {
+  text-align: center;
+}
+
+.ContainerForm {
+  display: flex;
+  flex-direction: column;
+  .formLabel {
+    font-size: 1.5rem;
+  }
+  input {
+    height: 40px;
+    border-radius: $general-radius;
+    margin-bottom: 16px;
+  }
+
+  input::placeholder {
+    text-align: center;
+  }
+}
+
+.primaryText {
+  margin-top: 32px;
+  font-size: 2rem;
+}

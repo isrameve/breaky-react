@@ -1,8 +1,8 @@
 import styles from "./Button.module.scss";
 
-const Button = ({ label, onClick, typeOfButton = "primaryButton" }) => {
+const Button = ({ label, onClick, typeOfButton = "primaryButton", type }) => {
   return (
-    <button className={styles[typeOfButton]} onClick={onClick}>
+    <button type={type} className={styles[typeOfButton]} onClick={onClick}>
       {label}
     </button>
   );

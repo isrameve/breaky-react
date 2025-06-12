@@ -4,3 +4,10 @@
 .secondaryButton {
   background-color: $secondary-button;
 }
+
+.largePrimaryButton {
+  background-color: $primary-button;
+  font-size: 2rem;
+  width: 80%;
+  height: 4rem;
+}
