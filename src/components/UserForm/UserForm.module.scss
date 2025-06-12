@@ -5,21 +5,34 @@
 .ContainerForm {
   display: flex;
   flex-direction: column;
+
+  padding-top: 24px;
   .formLabel {
     font-size: 1.5rem;
   }
   input {
+    margin-top: 8px;
     height: 40px;
     border-radius: $general-radius;
     margin-bottom: 16px;
   }
 
   input::placeholder {
+    font-size: 1.5rem;
     text-align: center;
   }
 }
 
 .primaryText {
-  margin-top: 32px;
+  padding-top: 32px;
   font-size: 2rem;
+}
+
+.secondaryText {
+  font-size: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
 }
