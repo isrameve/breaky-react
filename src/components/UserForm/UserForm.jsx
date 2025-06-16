@@ -1,41 +1,58 @@
-import { useState } from "react";
+// import { useEffect, useState } from "react";
 
 import FullCenterSection from "../../pages/FullCenterSection";
 import CardBackgroundGrey from "../CardBackgroundGrey/CardBackgroundGrey";
 import Button from "../Button/Button";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 import styles from "./UserForm.module.scss";
 
 const UserForm = () => {
-  const [inputName, setInputName] = useState("");
-  const [inputAge, setInputAge] = useState("");
-  const [inputTimeWork, setInputTimeWork] = useState("");
-  const [inputTimeRest, setInputTimeRest] = useState("");
-  const [user, setUser] = useState({
+  const initialUserConfig = {
     name: "",
     age: undefined,
-    timeWork: undefined,
-    timeRest: undefined,
-  });
+    workTime: undefined,
+    breakTime: undefined,
+  };
+
+  const [userProfile, setUserProfile] = useLocalStorage(
+    "userProfile",
+    initialUserConfig
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setUser({
-      name: inputName,
-      age: inputAge,
-      timeWork: inputTimeWork,
-      timeRest: inputTimeRest,
-    });
-
-    setInputName("");
-    setInputAge("");
-    setInputTimeWork("");
-    setInputTimeRest("");
-
-    alert(`Usuario guardado: ${inputName}`);
+    console.log(userProfile);
+    alert(`Usuario guardado`);
   };
-  console.log(user);
+
+  const handleNameChange = (e) => {
+    setUserProfile((prevProfile) => ({
+      ...prevProfile, // Copia todas las propiedades existentes con spread operator
+      name: e.target.value, // Solo actualiza 'name'
+    }));
+  };
+
+  const handleAgeChange = (e) => {
+    setUserProfile((prevProfile) => ({
+      ...prevProfile,
+      age: Number(e.target.value), // Convierte a número si es necesario
+    }));
+  };
+
+  const handleWorkTimeChange = (e) => {
+    setUserProfile((prevProfile) => ({
+      ...prevProfile,
+      workTime: Number(e.target.value),
+    }));
+  };
+
+  const handleBreakTimeChange = (e) => {
+    setUserProfile((prevProfile) => ({
+      ...prevProfile,
+      breakTime: Number(e.target.value),
+    }));
+  };
 
   return (
     <FullCenterSection position={"fullHeightBottom"}>
@@ -50,17 +67,15 @@ const UserForm = () => {
           <div className={styles.ContainerForm}>
             <div className={styles.formGroup}>
               <input
-                onChange={(e) => setInputName(e.target.value)}
+                onChange={handleNameChange}
                 type="text"
-                value={inputName}
                 placeholder="Tu nombre:"
               />
             </div>
             <div className={styles.formGroup}>
               <input
-                onChange={(e) => setInputAge(e.target.value)}
+                onChange={handleAgeChange}
                 type="number"
-                value={inputAge}
                 placeholder="Tu edad:"
               />
             </div>
@@ -69,7 +84,7 @@ const UserForm = () => {
                 ¿De cuanto será tu tiempo de trabajo?
               </label>
               <select
-                onChange={(e) => setInputTimeWork(e.target.value)}
+                onChange={handleWorkTimeChange}
                 className={styles.formLabel}
                 name=""
                 id=""
@@ -93,7 +108,7 @@ const UserForm = () => {
               </label>
 
               <select
-                onChange={(e) => setInputTimeRest(e.target.value)}
+                onChange={handleBreakTimeChange}
                 className={styles.formLabel}
                 name=""
                 id=""
