@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useTimer from "../../hooks/useTimer";
+import useSoundAlert from "../../hooks/useSoundAlert";
 
 import CardBackgroundGrey from "../CardBackgroundGrey/CardBackgroundGrey";
 import Button from "../Button/Button";
@@ -10,11 +11,14 @@ const WorkigTimer = ({ timeWorking }) => {
   const { time, formattedTime, isRunning, start, pause, reset } =
     useTimer(timeWorking);
 
+  const playSoundAlert = useSoundAlert();
+
   useEffect(() => {
     if (time === 0) {
-      alert("Ahora es tiempo de una pausa activa");
+      playSoundAlert();
+      // Implementar popUp simple para la notificación visual y no usar alert() bloqueantes
     }
-  }, [time]);
+  }, [time, playSoundAlert]);
 
   return (
     <CardBackgroundGrey>

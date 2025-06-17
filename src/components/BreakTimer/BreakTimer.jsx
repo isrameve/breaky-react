@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useTimer from "../../hooks/useTimer";
+import useSoundAlert from "../../hooks/useSoundAlert";
 
 import CardBackgroundGrey from "../CardBackgroundGrey/CardBackgroundGrey";
 import Button from "../Button/Button";
@@ -10,9 +11,12 @@ const BreakTimer = ({ breakTime }) => {
   const { time, formattedTime, isRunning, start, pause, reset } =
     useTimer(breakTime);
 
+  const playSoundAlert = useSoundAlert();
+
   useEffect(() => {
     if (time === 0) {
-      alert("A trabajar!!");
+      playSoundAlert();
+      // alert("A trabajar!!");
     }
   }, [time]);
 
