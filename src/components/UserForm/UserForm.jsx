@@ -28,25 +28,22 @@ const UserForm = () => {
 
   const handleNameChange = (e) => {
     setUserProfile((prevProfile) => ({
-      ...prevProfile, // Copia todas las propiedades existentes con spread operator
-      name: e.target.value, // Solo actualiza 'name'
+      ...prevProfile, // Copia todas las propiedades existentes con "spread operator"
+      name: e.target.value,
     }));
   };
-
   const handleAgeChange = (e) => {
     setUserProfile((prevProfile) => ({
       ...prevProfile,
-      age: Number(e.target.value), // Convierte a número si es necesario
+      age: Number(e.target.value),
     }));
   };
-
   const handleWorkTimeChange = (e) => {
     setUserProfile((prevProfile) => ({
       ...prevProfile,
       workTime: Number(e.target.value),
     }));
   };
-
   const handleBreakTimeChange = (e) => {
     setUserProfile((prevProfile) => ({
       ...prevProfile,
@@ -70,15 +67,19 @@ const UserForm = () => {
                 onChange={handleNameChange}
                 type="text"
                 placeholder="Tu nombre:"
+                value={userProfile.name}
               />
             </div>
+
             <div className={styles.formGroup}>
               <input
                 onChange={handleAgeChange}
                 type="number"
                 placeholder="Tu edad:"
+                value={userProfile.age}
               />
             </div>
+
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="">
                 ¿De cuanto será tu tiempo de trabajo?
@@ -88,42 +89,37 @@ const UserForm = () => {
                 className={styles.formLabel}
                 name=""
                 id=""
+                value={userProfile.workTime}
               >
                 <option value="undefined">
                   Selecciona tu tiempo de trabajo
                 </option>
-                <option value="30">30 minutos</option>
-                <option value="45">45 munitos</option>
-                <option value="60">1 hora</option>
+                <option value="5">5 segundos - Testeos</option>
+                <option value="1800">30 minutos</option>
+                <option value="2700">45 minutos - Recomendado</option>
+                <option value="3600">1 hora</option>
               </select>
-              {/* <input
-                
-                type="number"
-                value={inputTimeWork}
-              /> */}
             </div>
+
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="">
                 ¿Cuanto durará tu pausa activa?
               </label>
-
               <select
                 onChange={handleBreakTimeChange}
                 className={styles.formLabel}
                 name=""
                 id=""
+                value={userProfile.breakTime}
               >
                 <option value="undefined">
                   Selecciona tu tiempo de pausa activa
                 </option>
-                <option value="5">5 munitos</option>
-                <option value="15">15 minutos</option>
+                <option value="5">5 segundos - Testeos</option>
+                <option value="5">5 minutos</option>
+                <option value="15">15 minutos - Recomendado</option>
                 <option value="30">30 minutos</option>
               </select>
-              {/* <input
-                type="number"
-                value={inputTimeRest}
-              /> */}
             </div>
           </div>
 
