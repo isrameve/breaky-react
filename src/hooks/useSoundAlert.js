@@ -1,6 +1,6 @@
 import { useEffect, useRef, useCallback } from "react";
 
-const STANDARD_ALERT_SOUND_URL = "../../public/sounds/alert-1.wav";
+const STANDARD_ALERT_SOUND_URL = "../../sounds/alert-1.wav";
 const DEFAULT_VOLUME = 0.7; // Volumen estándar de la alerta (0.0 a 1.0)
 
 function useSoundAlert() {

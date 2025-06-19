@@ -7,6 +7,8 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 
 import styles from "./UserForm.module.scss";
 
+// Ocultar este cuando se llena el form por primera vez y se usa el componente de nuevo en una sección emergente para cuando se quiere hacer algún cambio o configuración
+
 const UserForm = () => {
   const initialUserConfig = {
     name: "",

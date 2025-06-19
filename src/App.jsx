@@ -5,7 +5,7 @@ import BreakTimer from "./components/BreakTimer/BreakTimer";
 
 import useLocalStorage from "./hooks/useLocalStorage";
 
-//Pienso que el estado global que maneja la aparicion y desaparición de las diferentes secciónes correspondientes al momento en el que está la pausa activa, se debe manejar desde aquí.
+//Pienso que el estado global que maneja la aparicion y desaparición de las diferentes secciónes correspondientes al momento en el que está la pausa activa, se debe manejar desde aquí indicando que componente se muetra en ese momento y actualizando el estado desde los componentes que usan el timer
 
 function App() {
   const [userProfile] = useLocalStorage("userProfile");
@@ -13,6 +13,7 @@ function App() {
   return (
     <div>
       <UserForm />
+      {/*Usar renderizado Condicional para mostrar/Ocultar completamente el componente según sea el estado global*/}
       <FullCenterSection>
         <WorkigTimer timeWorking={userProfile.workTime} />
       </FullCenterSection>
