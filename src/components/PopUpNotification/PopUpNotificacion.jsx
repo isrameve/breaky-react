@@ -3,20 +3,14 @@ import Button from "../Button/Button";
 
 import styles from "./PopUpNotification.module.scss";
 
-const PopUpNotification = ({ title, message }) => {
-  const [display, setDisplay] = useState("block");
-
-  const handleHideCard = () => {
-    setDisplay("none");
-  };
-
+const PopUpNotification = ({ title, message, onClick }) => {
   return (
     <>
-      <div style={{ display: display }} className={styles.card}>
+      <div className={styles.card}>
         <h2>{title}</h2>
         <p>{message}</p>
         {/* OnClick crear un evento para ocultar la ventana */}
-        <Button label={"OK"} onClick={handleHideCard} />
+        <Button label={"OK"} onClick={onClick} />
       </div>
     </>
   );

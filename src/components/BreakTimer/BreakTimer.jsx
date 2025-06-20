@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useTimer from "../../hooks/useTimer";
 import useSoundAlert from "../../hooks/useSoundAlert";
+import { useActivityStatus } from "../../contexts/ActivityContext";
 
 import CardBackgroundGrey from "../CardBackgroundGrey/CardBackgroundGrey";
 import Button from "../Button/Button";
@@ -13,6 +14,11 @@ const BreakTimer = ({ breakTime }) => {
     useTimer(breakTime);
 
   const playSoundAlert = useSoundAlert();
+  const { setActivityStatus } = useActivityStatus();
+
+  const handleClickEndRestNotification = () => {
+    setActivityStatus("working");
+  };
 
   useEffect(() => {
     if (time === 0) {
@@ -26,6 +32,7 @@ const BreakTimer = ({ breakTime }) => {
         <PopUpNotification
           title={"Acabó la pausa activa"}
           message={"Es tiempo de trabajar con enfoque"}
+          onClick={handleClickEndRestNotification}
         />
       )}
       <CardBackgroundGrey>

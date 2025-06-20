@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-// import { useActivityStatus } from "../../contexts/ActivityContext";
+import { useActivityStatus } from "../../contexts/ActivityContext";
 
 import FullCenterSection from "../../pages/FullCenterSection";
 import CardBackgroundGrey from "../CardBackgroundGrey/CardBackgroundGrey";
@@ -12,25 +12,25 @@ import styles from "./UserForm.module.scss";
 
 const UserForm = () => {
   const initialUserConfig = {
-    name: "",
-    age: undefined,
-    workTime: undefined,
-    breakTime: undefined,
+    name: "Israel",
+    age: "33",
+    workTime: "5",
+    breakTime: "5",
   };
+  // Hay un fallo. Si le hago localStorage.clear(), al quedar sin ningún predefinido, la app queda muerta y sin poder iniciar... buscar y entender el fallo pára solucionarlo - Puede ser el fallo que se presenta en Netlify
 
   const [userProfile, setUserProfile] = useLocalStorage(
     "userProfile",
     initialUserConfig
   );
 
-  // const { setActivityStatus } = useActivityStatus();
+  const { setActivityStatus } = useActivityStatus();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userProfile);
     alert(`Usuario guardado`);
-    // setActivityStatus("working");
-    // Setear el valor del contexto global ActivityContext a "Working"
+    setActivityStatus("working"); //Indica a la app que damos inicio a la app con working al setear el valor del contexto global ActivityContext a "working"
   };
 
   const handleNameChange = (e) => {
