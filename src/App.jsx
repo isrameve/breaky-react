@@ -12,7 +12,8 @@ function App() {
 
   return (
     <div>
-      <UserForm />
+      {activityStatus === undefined && <UserForm />}
+
       {activityStatus === "working" && (
         <FullCenterSection>
           <WorkigTimer timeWorking={userProfile.workTime} />
