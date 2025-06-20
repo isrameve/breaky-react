@@ -1,4 +1,5 @@
 // import { useEffect, useState } from "react";
+// import { useActivityStatus } from "../../contexts/ActivityContext";
 
 import FullCenterSection from "../../pages/FullCenterSection";
 import CardBackgroundGrey from "../CardBackgroundGrey/CardBackgroundGrey";
@@ -22,10 +23,14 @@ const UserForm = () => {
     initialUserConfig
   );
 
+  // const { setActivityStatus } = useActivityStatus();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userProfile);
     alert(`Usuario guardado`);
+    // setActivityStatus("working");
+    // Setear el valor del contexto global ActivityContext a "Working"
   };
 
   const handleNameChange = (e) => {

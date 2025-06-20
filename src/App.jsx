@@ -4,11 +4,15 @@ import WorkigTimer from "./components/WorkigTimer/WorkigTimer";
 import BreakTimer from "./components/BreakTimer/BreakTimer";
 
 import useLocalStorage from "./hooks/useLocalStorage";
+// import { useActivityStatus } from "./contexts/ActivityContext";
 
 //Pienso que el estado global que maneja la aparicion y desaparición de las diferentes secciónes correspondientes al momento en el que está la pausa activa, se debe manejar desde aquí indicando que componente se muetra en ese momento y actualizando el estado desde los componentes que usan el timer
 
 function App() {
   const [userProfile] = useLocalStorage("userProfile");
+  // const { activityStatus } = useActivityStatus();
+
+  // console.log(activityStatus);
 
   return (
     <div>
