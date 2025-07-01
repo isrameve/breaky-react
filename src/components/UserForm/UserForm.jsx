@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import { useActivityStatus } from "../../contexts/ActivityContext";
 
 import FullCenterSection from "../../pages/FullCenterSection";
@@ -8,14 +7,12 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 
 import styles from "./UserForm.module.scss";
 
-// Ocultar este cuando se llena el form por primera vez y se usa el componente de nuevo en una sección emergente para cuando se quiere hacer algún cambio o configuración
-
 const UserForm = () => {
   const initialUserConfig = {
-    name: "Israel",
-    age: "33",
-    workTime: "5",
-    breakTime: "5",
+    name: "",
+    age: undefined,
+    workTime: undefined,
+    breakTime: undefined,
   };
   // Hay un fallo. Si le hago localStorage.clear(), al quedar sin ningún predefinido, la app queda muerta y sin poder iniciar... buscar y entender el fallo pára solucionarlo - Puede ser el fallo que se presenta en Netlify
 
@@ -50,6 +47,7 @@ const UserForm = () => {
       ...prevProfile,
       workTime: Number(e.target.value),
     }));
+    33;
   };
   const handleBreakTimeChange = (e) => {
     setUserProfile((prevProfile) => ({
