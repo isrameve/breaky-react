@@ -73,6 +73,7 @@ const UserForm = () => {
                 type="text"
                 placeholder="Tu nombre:"
                 value={userProfile.name}
+                required
               />
             </div>
 
@@ -82,6 +83,7 @@ const UserForm = () => {
                 type="number"
                 placeholder="Tu edad:"
                 value={userProfile.age}
+                required
               />
             </div>
 
@@ -95,6 +97,7 @@ const UserForm = () => {
                 name=""
                 id=""
                 value={userProfile.workTime}
+                required
               >
                 <option value="undefined">
                   Selecciona tu tiempo de trabajo
@@ -116,6 +119,7 @@ const UserForm = () => {
                 name=""
                 id=""
                 value={userProfile.breakTime}
+                required
               >
                 <option value="undefined">
                   Selecciona tu tiempo de pausa activa
