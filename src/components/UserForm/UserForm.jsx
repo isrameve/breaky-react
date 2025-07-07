@@ -2,10 +2,13 @@ import FullCenterSection from "../../pages/FullCenterSection";
 import CardBackgroundGrey from "../CardBackgroundGrey/CardBackgroundGrey";
 import Button from "../Button/Button";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { useMenuStatus } from "../../contexts/ConfigMenuContext";
 
 import styles from "./UserForm.module.scss";
 
 const UserForm = () => {
+  const { setIsMenuDisplayed } = useMenuStatus();
+
   const initialUserConfig = {
     name: "",
     age: undefined,
@@ -20,6 +23,7 @@ const UserForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsMenuDisplayed(false);
     console.log(userProfile);
     alert(`Usuario guardado`);
   };
