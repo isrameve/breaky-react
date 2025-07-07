@@ -41,7 +41,7 @@ function App() {
 
       <TopNavBar>
         {/* Cambia el estado del menú, desplegado o no desplegado */}
-        <Button label={"Desplegar form"} onClick={handleDisplayForm} />
+        <Button label={"Editar usuario"} onClick={handleDisplayForm} />
         {/* Por ahora manejaré un botón cualquiera para pruebas con el Form desplegable */}
       </TopNavBar>
 
