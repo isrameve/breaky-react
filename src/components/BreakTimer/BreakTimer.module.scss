@@ -12,3 +12,9 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+@media (width <= $breakpoint-mobile-min) {
+  .buttonsContainer {
+    flex-direction: column;
+  }
+}

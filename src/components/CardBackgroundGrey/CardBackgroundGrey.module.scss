@@ -26,3 +26,13 @@
   border-radius: $general-radius;
   background-color: $color-card;
 }
+
+@media (width <= $breakpoint-mobile-min) {
+  .card {
+    width: 90%;
+    height: 40%;
+  }
+  .alignEnd {
+    width: 90%;
+  }
+}

@@ -54,7 +54,7 @@ function App() {
     <div>
       <TopNavBar>
         {/* Cambia el estado del menú, desplegado o no desplegado */}
-        <Button label={"Editar usuario"} onClick={handleDisplayForm} />
+        <Button label={"Editar"} onClick={handleDisplayForm} />
         {/* Por ahora manejaré un botón cualquiera para pruebas con el Form desplegable */}
       </TopNavBar>
       {/* 
@@ -64,13 +64,11 @@ function App() {
             <UserForm />
           </FullCenterSection>
         ))} */}
-
       {activityStatus === "working" && !isMenuDisplayed && (
         <FullCenterSection>
           <WorkigTimer timeWorking={userProfile.workTime} />
         </FullCenterSection>
       )}
-
       {activityStatus === "pausing" && !isMenuDisplayed && (
         <FullCenterSection>
           <BreakTimer breakTime={userProfile.breakTime} />
