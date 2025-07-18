@@ -10,8 +10,15 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import { useActivityStatus } from "./contexts/ActivityContext";
 import { useMenuStatus } from "./contexts/ConfigMenuContext";
 
+const initialUserConfig = {
+  name: "",
+  age: undefined,
+  workTime: undefined,
+  breakTime: undefined,
+};
+
 function App() {
-  const [userProfile] = useLocalStorage("userProfile");
+  const [userProfile] = useLocalStorage("userProfile", initialUserConfig);
   const { activityStatus } = useActivityStatus();
   const { setIsMenuDisplayed, isMenuDisplayed } = useMenuStatus();
 
@@ -21,8 +28,21 @@ function App() {
     console.log(isMenuDisplayed);
   };
 
-  if (activityStatus === undefined && localStorage.length > 0) {
-    //Esto tiene fallas a largo plazo, ya que si tengo otros elementos en el local mas adelante, podrían crear un conflicto
+  const isUserProfileIncomplete =
+    !userProfile.name ||
+    userProfile.age === undefined ||
+    userProfile.workTime === undefined ||
+    userProfile.breakTime === undefined;
+
+  if (isUserProfileIncomplete || isMenuDisplayed) {
+    return (
+      <FullCenterSection>
+        <UserForm />
+      </FullCenterSection>
+    );
+  }
+
+  if (activityStatus === undefined) {
     return (
       <FullCenterSection>
         <ButtonToWorking />
@@ -32,18 +52,18 @@ function App() {
 
   return (
     <div>
-      {activityStatus === undefined ||
-        (isMenuDisplayed && (
-          <FullCenterSection>
-            <UserForm />
-          </FullCenterSection>
-        ))}
-
       <TopNavBar>
         {/* Cambia el estado del menú, desplegado o no desplegado */}
         <Button label={"Editar usuario"} onClick={handleDisplayForm} />
         {/* Por ahora manejaré un botón cualquiera para pruebas con el Form desplegable */}
       </TopNavBar>
+      {/* 
+      {activityStatus === undefined ||
+        (isMenuDisplayed && (
+          <FullCenterSection>
+            <UserForm />
+          </FullCenterSection>
+        ))} */}
 
       {activityStatus === "working" && !isMenuDisplayed && (
         <FullCenterSection>

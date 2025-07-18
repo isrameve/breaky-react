@@ -9,22 +9,20 @@ import styles from "./UserForm.module.scss";
 const UserForm = () => {
   const { setIsMenuDisplayed } = useMenuStatus();
 
-  const initialUserConfig = {
-    name: "",
-    age: undefined,
-    workTime: undefined,
-    breakTime: undefined,
-  };
+  // const initialUserConfig = {
+  //   name: "",
+  //   age: undefined,
+  //   workTime: undefined,
+  //   breakTime: undefined,
+  // };
 
-  const [userProfile, setUserProfile] = useLocalStorage(
-    "userProfile",
-    initialUserConfig
-  );
+  const [userProfile, setUserProfile] = useLocalStorage("userProfile");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsMenuDisplayed(false);
     console.log(userProfile);
+
     alert(`Usuario guardado`);
   };
 
@@ -70,7 +68,7 @@ const UserForm = () => {
                 onChange={handleNameChange}
                 type="text"
                 placeholder="Tu nombre:"
-                value={userProfile.name}
+                value={userProfile ? userProfile.name : ""}
                 required
               />
             </div>
@@ -80,7 +78,7 @@ const UserForm = () => {
                 onChange={handleAgeChange}
                 type="number"
                 placeholder="Tu edad:"
-                value={userProfile.age}
+                value={userProfile ? userProfile.age : ""}
                 required
               />
             </div>
@@ -94,7 +92,7 @@ const UserForm = () => {
                 className={styles.formLabel}
                 name=""
                 id=""
-                value={userProfile.workTime}
+                value={userProfile ? userProfile.workTime : ""}
                 required
               >
                 <option value="undefined">
@@ -116,16 +114,16 @@ const UserForm = () => {
                 className={styles.formLabel}
                 name=""
                 id=""
-                value={userProfile.breakTime}
+                value={userProfile ? userProfile.breakTime : ""}
                 required
               >
                 <option value="undefined">
                   Selecciona tu tiempo de pausa activa
                 </option>
                 <option value="5">5 segundos - Testeos</option>
-                <option value="5">5 minutos</option>
-                <option value="15">15 minutos - Recomendado</option>
-                <option value="30">30 minutos</option>
+                <option value="300">5 minutos</option>
+                <option value="900">15 minutos - Recomendado</option>
+                <option value="1800">30 minutos</option>
               </select>
             </div>
           </div>

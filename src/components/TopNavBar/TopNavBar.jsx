@@ -16,7 +16,7 @@ const TopNavBar = ({ children }) => {
     <div className={styles.navBar}>
       <div className={styles.logoAndUserId}>
         <img src="any" alt="logo-breaky" />
-        <h3>Hola {userProfile.name || ""}!!</h3>
+        <h3>Hola{" " + userProfile.name || ""}!!</h3>
       </div>
       <div>{children}</div>
     </div>
