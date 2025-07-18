@@ -24,6 +24,7 @@ const UserForm = () => {
     console.log(userProfile);
 
     alert(`Usuario guardado`);
+    window.location.reload(); //forzar una recarga mienras encuentro una solución para el re-renderizado
   };
 
   const handleNameChange = (e) => {
